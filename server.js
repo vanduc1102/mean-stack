@@ -1,9 +1,5 @@
-var http = require('http');
-http.createServer(function(req, res){
-	res.writeHead(200,{
-		'Content-Type':'text/html'
-	});
-	res.end('<h1>Hello World</h1>');
-}).listen(8080);
-
-console.log("server is listening at localhost:8080");
+var express = require('./config/express');
+var app = express();
+app.listen(3000);
+module.exports = app;
+console.log("Server running at http://localhost:3000/");
