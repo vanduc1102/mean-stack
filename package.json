@@ -1,0 +1,14 @@
+{
+  "name": "mean-stack",
+  "version": "1.0.0",
+  "description": "Code from MEAN Web Developement book: https://www.packtpub.com/web-development/mean-web-development",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vanducld@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
