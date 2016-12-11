@@ -1,3 +1,5 @@
 exports.render = function(req, res){
-	res.send("Hello world.");
+	res.render('helloworld',{
+		title:'Hello World from DucNguyen'
+	});
 }
