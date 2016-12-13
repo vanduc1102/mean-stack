@@ -1,5 +1,8 @@
-var controller = require("../controllers/controller.js");
+var userController = require('../controllers/user-controller.js');
 module.exports = function (app){
-	//app.get("/", controller.render);
+	app.route('/user')
+	.post(userController.create)
+	.get(userController.list);
+	app.get('/user/:userId',userController.find);
 	return app;
 }

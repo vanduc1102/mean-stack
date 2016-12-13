@@ -9,5 +9,6 @@ module.exports = function() {
 			console.log("Connection successful with MongoDB.");
 		}
 	});
+	require('../app/models/user-model');
 	return db;
 };
