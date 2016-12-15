@@ -7,6 +7,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+<lin rel="stylesheet" hrf="main.css">
 <!-- libs -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -20,25 +21,24 @@
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="controllers/app-controller.js"></script>
 <script type="text/javascript" src="services/user-service.js"></script>
+<script type="text/javascript" src="services/url-service.js"></script>
 <!-- end scripts -->
 </head>
 <body ng-app="meanStack" ng-controller="AppController">
     <div class="container">
-        <form>
+        <form  name="myForm">
           <div class="form-group">
-            <label for="userName">Username</label>
-            <input type="text" class="form-control" id="username" ng-model="user.username" placeholder="User">
-          </div>
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" ng-model="user.email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
+            <label for="userName">URL</label>
+            <input type="url" class="form-control" id="username" ng-model="originUrl" placeholder="Place your url here" autocomplete="off" required>
           </div>
           <button type="submit" class="btn btn-default" ng-click="onSubmit($event)">Submit</button>
         </form>
+        <div class="form-group">
+            <label for="shortened">shortened URL </label>
+            <input type="text" class="form-control" id="username" ng-model="shortenedUrl" placeholder="Result" autocomplete="off" readonly>
+        </div>
+        
     </div>
+
 </body>
 </html>

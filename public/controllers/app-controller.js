@@ -1,6 +1,16 @@
-app.controller('AppController',function($scope,UserService){
-	$scope.user = {};
+app.controller('AppController',function($scope,UrlService,$window){
 	$scope.onSubmit = function($event){
-		UserService.create($scope.user);
+		if(!$scope.myForm.$invalid){
+			var data = {
+				originUrl : $scope.originUrl
+			};
+			UrlService.create(data).then(function(response){
+				$scope.shortenedUrl = $window.location.origin + '/shortener/' + response.shortened;
+			});
+		}
 	}
+
+	UrlService.search().then(function(list){
+		console.log(list);
+	});
 });

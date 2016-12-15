@@ -1,10 +1,10 @@
-app.service('UserService',function($http, $q){
+app.service('UrlService',function($http, $q){
 	return {
-		create: function(user){
+		create: function(originUrl){
 			var defer = $q.defer();
 			$http({
-				url:'./user',
-				data:user,
+				url:'./shortener',
+				data:originUrl,
 				method:'POST'
 			}).then(function(response){
 				defer.resolve(response['data']);
@@ -16,7 +16,7 @@ app.service('UserService',function($http, $q){
 		search: function(){
 			var defer = $q.defer();
 			$http({
-				url:'./user',
+				url:'./shortener',
 				method:'GET'
 			}).then(function(response){
 				defer.resolve(response['data']);
@@ -25,10 +25,10 @@ app.service('UserService',function($http, $q){
 			});
 			return defer.promise;
 		},
-		find: function(userId){
+		find: function( urlId){
 			var defer = $q.defer();
 			$http({
-				url:'./user/'+userId,
+				url:'./shortener/'+urlId,
 				method:'GET'
 			}).then(function(response){
 				defer.resolve(response['data']);
