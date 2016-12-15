@@ -36,6 +36,18 @@ app.service('UrlService',function($http, $q){
 				defer.reject(reason);
 			});
 			return defer.promise;
+		},
+		deleteUrl: function( urlId){
+			var defer = $q.defer();
+			$http({
+				url:'./shortener/'+urlId,
+				method:'DELETE'
+			}).then(function(response){
+				defer.resolve(response);
+			},function(reason){
+				defer.reject(reason);
+			});
+			return defer.promise;
 		}
 	};
 })

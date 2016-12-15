@@ -13,10 +13,16 @@ app.controller('AppController',function($scope,UrlService,$window){
 
 	$scope.shortedBase = $window.location.origin + '/shortener/';
 	reloadList ();
-	
+
 	function reloadList (){
 		UrlService.search().then(function(list){
 			$scope.list = list;
+		});
+	}
+
+	$scope.onDelete = function(item){
+		UrlService.deleteUrl(item['_id']).then(function(){
+			reloadList ();
 		});
 	}
 
