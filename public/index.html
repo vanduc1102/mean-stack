@@ -37,7 +37,24 @@
             <label for="shortened">shortened URL </label>
             <input type="text" class="form-control" id="username" ng-model="shortenedUrl" placeholder="Result" autocomplete="off" readonly>
         </div>
-        
+        <div>
+            
+        </div>
+        <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Shorten</th>
+                <th>Counter</th>
+                <th>Origin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in list">
+                <td><a href="{{shortedBase + item.shortened}}" target="_blank">{{shortedBase + item.shortened}}</a></td>
+                <td>{{item.counter}}</td>
+                <td>{{item.originUrl}}</td>
+              </tr>
+            </tbody>
     </div>
 
 </body>

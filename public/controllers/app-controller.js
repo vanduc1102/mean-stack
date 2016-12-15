@@ -5,12 +5,19 @@ app.controller('AppController',function($scope,UrlService,$window){
 				originUrl : $scope.originUrl
 			};
 			UrlService.create(data).then(function(response){
-				$scope.shortenedUrl = $window.location.origin + '/shortener/' + response.shortened;
+				$scope.shortenedUrl = $scope.shortedBase + response.shortened;
+				reloadList ();
 			});
 		}
 	}
 
-	UrlService.search().then(function(list){
-		console.log(list);
-	});
+	$scope.shortedBase = $window.location.origin + '/shortener/';
+	reloadList ();
+	
+	function reloadList (){
+		UrlService.search().then(function(list){
+			$scope.list = list;
+		});
+	}
+
 });
