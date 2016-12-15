@@ -10,5 +10,7 @@ module.exports = function() {
 		}
 	});
 	require('../app/models/user-model');
+	require('../app/models/counter-model');
+	require('../app/models/url-model');
 	return db;
 };
