@@ -10,6 +10,7 @@ exports.create = function(req, res, next){
 		}
 	})
 }
+
 exports.find = function(req, res, next, id) {
 	var userId = req.params.id;
 	User.findOne({
@@ -23,6 +24,8 @@ exports.find = function(req, res, next, id) {
 		}
 	});
 };
+
+
 
 exports.list = function(req, res, next) {
 	User.find({}, function(err, users) {

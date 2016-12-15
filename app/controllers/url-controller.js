@@ -52,7 +52,8 @@ exports.find = function(req, res, next) {
 		if (err) {
 			//next(err);
 			console.log(err);
-			res.end();
+			res.setHeader('Content-Type', 'text/html');
+    		res.send( "Url does not exist.");
 		} else {
 
 			Url.update({
@@ -64,6 +65,19 @@ exports.find = function(req, res, next) {
 			
 			//res.
 		}
+	});
+};
+
+exports.deleteUrl = function(req, res) {
+	var urlId = req.params.urlId;
+	Url.remove({ _id: urlId }, function(err) {
+	    if (!err) {	 
+	    	res.statusCode = 200;          
+	    }
+	    else {	       
+	    	res.statusCode = 500;      
+	    }
+	    res.end();
 	});
 };
 

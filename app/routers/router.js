@@ -7,7 +7,8 @@ module.exports = function (app){
 	app.get('/user/:userId',userController.find);
 
 	app.post('/shortener',urlController.create);
-	app.get('/shortener',urlController.list);
+	app.get('/shortener',urlController.list);	
+	app.delete('/shortener/:urlId',urlController.deleteUrl);
 	app.get('/shortener/:shortenerText',urlController.find);
 	return app;
 }
