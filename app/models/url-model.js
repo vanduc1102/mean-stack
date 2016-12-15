@@ -3,7 +3,10 @@ Schema = mongoose.Schema;
 
 var UrlSchema = new Schema({
 	originUrl: String,
-	shortened:String,
+	shortened:{
+		type:String,
+		index: true
+	},
 	username:String,
 	counter:{
 		type:Number,
