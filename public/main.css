@@ -1,3 +1,8 @@
 .ng-invalid-url{
 	background: red;
 }
+tr > td{
+	text-overflow: ellipsis !important;
+    overflow: hidden  !important;
+    white-space: nowrap  !important;
+}
