@@ -31,6 +31,10 @@
             <label for="userName">URL</label>
             <input type="url" class="form-control" id="username" ng-model="originUrl" placeholder="Place your url here" autocomplete="off" required>
           </div>
+          <div class="form-group">
+            <label for="custom">Custom Short</label>
+            <input type="text" class="form-control" id="custom" ng-model="custom" placeholder="Input custom url" autocomplete="off">
+          </div>
           <button type="submit" class="btn btn-default" ng-click="onSubmit($event)">Submit</button>
         </form>
         <div class="form-group">
