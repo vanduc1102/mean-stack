@@ -1,6 +1,6 @@
 {
   "name": "mean-stack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Code from MEAN Web Developement book: https://www.packtpub.com/web-development/mean-web-development",
   "main": "server.js",
   "scripts": {
