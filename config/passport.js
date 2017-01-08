@@ -15,5 +15,5 @@ module.exports = function(){
 		});
 	});
 	
-	require('./strategries/local.js')();
+	require('./strategies/local.js')();
 }

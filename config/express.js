@@ -5,6 +5,7 @@ var express = require("express"),
 	methodOverride = require('method-override'),
 	session = require('express-session'),
 	passport = require('passport'),
+	flash = require('connect-flash'),
 	config = require('./config');
 
 module.exports = function (){
@@ -33,6 +34,7 @@ module.exports = function (){
 	app.set('views','./app/views');
 	app.set('view engine', 'ejs');
 
+	app.use(flash());
 	app.use(passport.initialize());
 	app.use(passport.session());
 	//app.use(basicAuth);

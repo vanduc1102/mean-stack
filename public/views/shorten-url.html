@@ -1,0 +1,38 @@
+<div class="application-wrapper">
+  <form  name="myForm" >
+    <div class="form-group">
+      <label for="userName">URL</label>
+      <input type="url" class="form-control" id="username" ng-model="originUrl" placeholder="Place your url here" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+      <label for="custom">Custom Short</label>
+      <input type="text" class="form-control" id="custom" ng-model="custom" placeholder="Input custom url" autocomplete="off">
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="onSubmit($event)">Submit</button>
+  </form>
+  <div class="form-group">
+    <label for="shortened">shortened URL </label>
+    <input type="text" class="form-control" id="username" ng-model="shortenedUrl" placeholder="Result" autocomplete="off" readonly>
+  </div>
+  <div>
+
+  </div>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Shorten</th>
+        <th>Counter</th>
+        <th>Origin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in list">
+        <td><button ng-click="onDelete(item)">x</button></td>
+        <td><a href="{{shortedBase + item.shortened}}" target="_blank">{{shortedBase + item.shortened}}</a></td>
+        <td>{{item.counter}}</td>
+        <td> <a href="{{originUrl}}" target="_blank"> {{item.originUrl}} </a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

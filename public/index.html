@@ -15,65 +15,23 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-touch.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
 <script type="text/javascript" src="libs/ui-bootstrap-tpls-2.3.1.min.js"></script>
 <!-- end libs -->
 <!-- scripts -->
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="routes.js"></script>
 <script type="text/javascript" src="controllers/app-controller.js"></script>
+<script type="text/javascript" src="controllers/login.js"></script>
+<script type="text/javascript" src="controllers/shorten-url.js"></script>
+<script type="text/javascript" src="controllers/sign-up.js"></script>
 <script type="text/javascript" src="services/user-service.js"></script>
 <script type="text/javascript" src="services/url-service.js"></script>
 <!-- end scripts -->
 </head>
 <body ng-app="meanStack" ng-controller="AppController">
     <div class="container">
-        <form name="login" action="/signin" method="POST">
-          <div>
-            <label> Username : </label>
-            <input type="text" name="username" placeholder="User name" />
-          </div>
-          <div>
-            <label> Password : </label>
-            <input type="password" name="password" placeholder="Password" />
-          </div>
-          <div>
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
-        <form  name="myForm">
-          <div class="form-group">
-            <label for="userName">URL</label>
-            <input type="url" class="form-control" id="username" ng-model="originUrl" placeholder="Place your url here" autocomplete="off" required>
-          </div>
-          <div class="form-group">
-            <label for="custom">Custom Short</label>
-            <input type="text" class="form-control" id="custom" ng-model="custom" placeholder="Input custom url" autocomplete="off">
-          </div>
-          <button type="submit" class="btn btn-default" ng-click="onSubmit($event)">Submit</button>
-        </form>
-        <div class="form-group">
-            <label for="shortened">shortened URL </label>
-            <input type="text" class="form-control" id="username" ng-model="shortenedUrl" placeholder="Result" autocomplete="off" readonly>
-        </div>
-        <div>
-            
-        </div>
-        <table class="table table-condensed">
-            <thead>
-              <tr>
-                <th>&nbsp;</th>
-                <th>Shorten</th>
-                <th>Counter</th>
-                <th>Origin</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="item in list">
-                <td><button ng-click="onDelete(item)">x</button></td>
-                <td><a href="{{shortedBase + item.shortened}}" target="_blank">{{shortedBase + item.shortened}}</a></td>
-                <td>{{item.counter}}</td>
-                <td> <a href="{{originUrl}}" target="_blank"> {{item.originUrl}} </a></td>
-              </tr>
-            </tbody>
+      <ng-view></ng-view>
     </div>
 </body>
 </html>
