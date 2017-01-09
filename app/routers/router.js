@@ -8,21 +8,8 @@ module.exports = function (app){
 	.get(userController.list);
 
 	app.post('/signup', userController.signup);
-	app.post('/signin', function(req, res, next) {
-	  passport.authenticate('local', function(err, user, info) {
-	    if (err) { 
-	    	return res.status(401).send("Authentication failure.");
-	    }
-	    if (!user) { 
-	    	return res.status(401).send("Authentication failure."); 
-	    }
-	    res.status(200).json({
-	    	isSuccessful:true,
-	    	data:''
-	    });
-	  })(req, res, next);
-	  
-	});
+	app.post('/signin', userController.authenticate);
+	app.get('/logout', userController.logout);
 
 	app.get('/user/:userId',userController.find);
 

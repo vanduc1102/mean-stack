@@ -1,5 +1,8 @@
 app.controller('AppController',function($scope,UrlService,$window, $location, $rootScope){
-	if(!$rootScope.isAuthenticated){
-		$location.path('/login');
-	}
+	$rootScope.$on('$routeChangeStart', function (event) {
+        if (!$rootScope.isAuthenticated) {
+            event.preventDefault();
+            $location.path('/login');
+        }
+    });
 });

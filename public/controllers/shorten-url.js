@@ -1,4 +1,4 @@
-app.controller('ShortenUrlController',function($scope,UrlService,$window){
+app.controller('ShortenUrlController',function($scope,UrlService,$window, $rootScope, $location, UserService){
 	$scope.onSubmit = function($event){
 		if(!$scope.myForm.$invalid){
 			var data = {
@@ -28,6 +28,12 @@ app.controller('ShortenUrlController',function($scope,UrlService,$window){
 		UrlService.deleteUrl(item['_id']).then(function(){
 			reloadList ();
 		});
+	}
+
+	$scope.onLogoutSubmit = function ($event){
+		UserService.logout();
+		$rootScope.isAuthenticated = false;
+		$location.path("/login");
 	}
 
 });

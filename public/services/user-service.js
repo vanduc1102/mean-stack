@@ -49,6 +49,18 @@ app.service('UserService',function($http, $q){
 				defer.reject(reason);
 			});
 			return defer.promise;
+		},
+		logout:function(){
+			var defer = $q.defer();
+			$http({
+				url:'./logout',
+				method:'GET'
+			}).then(function(response){
+				defer.resolve(response['data']);
+			}, function(reason){
+				defer.reject(reason);
+			});
+			return defer.promise;
 		}
 	};
 })

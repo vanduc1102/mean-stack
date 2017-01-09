@@ -1,4 +1,5 @@
 <div class="application-wrapper">
+  <button class="btn btn-danger"  ng-click="onLogoutSubmit($event)">Logout</button>
   <form  name="myForm" >
     <div class="form-group">
       <label for="userName">URL</label>
@@ -28,7 +29,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in list">
-        <td><button ng-click="onDelete(item)">x</button></td>
+        <td><button class="btn btn-danger" ng-click="onDelete(item)">x</button></td>
         <td><a href="{{shortedBase + item.shortened}}" target="_blank">{{shortedBase + item.shortened}}</a></td>
         <td>{{item.counter}}</td>
         <td> <a href="{{originUrl}}" target="_blank"> {{item.originUrl}} </a></td>

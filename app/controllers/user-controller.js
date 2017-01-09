@@ -1,4 +1,5 @@
 var User = require('mongoose').model('User');
+var passport = require('passport');
 exports.create = function(req, res, next){
 	var user = new User(req.body);
 	user.save(function(err){
@@ -59,8 +60,8 @@ exports.list = function(req, res, next) {
 };
 
 exports.logout= function (req, res, rext){
-	res.logout();
-	res.redirect('/logout');
+	req.logout();
+	res.status(401).send("Logged out.");
 }
 
 exports.signup = function (req, res, next){
@@ -78,12 +79,27 @@ exports.signup = function (req, res, next){
 			res.json({
 				successful:true
 			});
-			// req.login(user, function(err) {
-			// 	if (err) return next(err);
-			// 	return res.redirect('/');
-			// });
 		});
 	}else{
-		return res.redirect('/');
+		res.statusCode(400);
+		res.json({
+			successful:false,
+			message:"Can not create a new user."
+		});
 	}
 }
+
+exports.authenticate = function(req, res, next) {
+	passport.authenticate('local', function(err, user, info) {
+		if (err) { 
+			return res.status(401).send("Authentication failure.");
+		}
+		if (!user) { 
+			return res.status(401).send("Authentication failure."); 
+		}
+		res.status(200).json({
+			successful:true,
+			data:''
+		});
+	})(req, res, next);
+};
